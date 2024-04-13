@@ -9,6 +9,8 @@ import userRoutes from './routes/user.route.js';
 // Importation des routes d'authentification depuis le fichier auth.route.js
 import authRoutes from './routes/auth.route.js';
 
+import cookieParser from 'cookie-parser';
+
 // Chargement des variables d'environnement à partir du fichier .env
 dotenv.config();
 // Connexion à la base de données MongoDB en utilisant l'URL spécifiée dans la variable d'environnement MONGO
@@ -24,6 +26,8 @@ const app = express();
 
 // Middleware pour traiter les corps des requêtes au format JSON
 app.use(express.json());
+
+app.use(cookieParser());
 
 // Démarrage du serveur HTTP sur le port 3000 et affichage d'un message dans la console
 app.listen(3000, () => {
